@@ -7,7 +7,7 @@ dependencyResolutionManagement {
 
 
         flatDir {
-            dirs 'libs'
+            dirs 'imsdk/libs'
         }
     }
 }
