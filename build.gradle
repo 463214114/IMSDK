@@ -21,17 +21,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
     implementation(name: 'OpenIMCoreSources', ext: 'jar')
     implementation(name: 'OpenIMCore', ext: 'aar')
-}
-
-repositories {
-	flatDir {
-		dirs 'libs'
-	}
 }
 
 afterEvaluate {
