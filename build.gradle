@@ -2,8 +2,21 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.android.library'
 
 buildscript {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+    
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
 
