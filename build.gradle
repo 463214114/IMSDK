@@ -1,6 +1,12 @@
 apply plugin: 'maven-publish'
 apply plugin: 'com.android.library'
 
+buildscript {
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+    }
+}
+
 afterEvaluate {
     publishing {
         publications {
