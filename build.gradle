@@ -1,0 +1,52 @@
+android {
+    compileSdk 30
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation(name: 'OpenIMCoreSources', ext: 'jar')
+    implementation(name: 'OpenIMCore', ext: 'aar')
+}
+
+repositories {
+	flatDir {
+		dirs 'libs'
+	}
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                //建议和github地址对应，否则对jitpack无效
+                groupId = 'com.github.463214114'
+                //建议和github仓库名称对应，否则对jitpack无效
+                artifactId = 'IMSDK'
+                //建议和release的tag相同，否则对jitpack无效
+                version = '1.0.0'
+            }
+        }
+    }
+}
