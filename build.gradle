@@ -1,38 +1,26 @@
-apply plugin: 'maven-publish'
-apply plugin: 'com.android.library'
-
 buildscript {
     repositories {
         maven { url 'https://jitpack.io' }
+        google()
+        mavenCentral()
     }
-    
+
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
     }
 }
 
+plugins {
+    'id' 'maven-publish'
+}
+
 rootProject.allprojects {
     repositories {
         maven { url 'https://jitpack.io' }
-        flatDir {
-            dirs 'libs'
-        }
+        google()
+        mavenCentral()
     }
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                from components.release
-                //建议和github地址对应，否则对jitpack无效
-                groupId = 'com.github.463214114'
-                //建议和github仓库名称对应，否则对jitpack无效
-                artifactId = 'IMSDK'
-                //建议和release的tag相同，否则对jitpack无效
-                version = '1.5.0'
-            }
-        }
-    }
-}
+
+
