@@ -29,8 +29,7 @@ android {
 
 
 dependencies {
-    implementation files('libs/IMCoreSource.jar')
-    implementation files('libs/IMCore.aar')
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     testImplementation 'junit:junit:4.+'
