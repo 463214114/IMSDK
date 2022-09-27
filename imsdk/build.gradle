@@ -29,7 +29,7 @@ android {
 
 
 dependencies {
-    implementation files('libs/OpenIMCoreSources.jar')
+    implementation files('libs/OpenIMCoreSource.jar')
     // implementation(name: 'IMCoreSource', ext: 'jar')
     implementation(name: 'IMCore', ext: 'aar')
 }
